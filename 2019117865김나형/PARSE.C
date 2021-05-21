@@ -42,10 +42,11 @@ static TreeNode* call(void);
 static TreeNode* args(void);
 static TreeNode* args_list(void);
 
-static void syntaxError(char * message)
-{ fprintf(listing,"\n>>> ");
-  fprintf(listing,"Syntax error at line %d: %s",lineno,message);
-  Error = TRUE;
+static void syntaxError(char* message)
+{
+	fprintf(listing, "\n>>> ");
+	fprintf(listing, "Syntax error at line %d: %s", lineno, message);
+	Error = TRUE;
 }
 
 static void match(TokenType expected)
@@ -55,8 +56,8 @@ static void match(TokenType expected)
 	}
 	else {
 		syntaxError("unexpected token -> ");
-		printToken(token,tokenString);
-		fprintf(listing,"      ");
+		printToken(token, tokenString);
+		fprintf(listing, "      ");
 	}
 }
 
@@ -131,7 +132,7 @@ TreeNode* decl(void) // decl -> var-decl | fun-decl
 		match(RPAREN);
 		if (t != NULL) {
 			t->child[1] = comp_stmt();
-		}	
+		}
 		break;
 	default: syntaxError("unexpected token (decl) -> ");
 		printToken(token, tokenString);
@@ -141,7 +142,7 @@ TreeNode* decl(void) // decl -> var-decl | fun-decl
 	return t;
 }
 // var_decl -> type_spec id ; | type_spec id [ num ]
-TreeNode* var_decl(void) 
+TreeNode* var_decl(void)
 {
 	TreeNode* t = NULL;
 	ExpType type;
@@ -188,7 +189,7 @@ ExpType type_spec(void) // type_spec -> int | void
 	if (token == INT) {
 		fprintf(listing, "");
 	} //??
-	
+
 	switch (token)
 	{
 	case INT:
@@ -211,7 +212,7 @@ TreeNode* params(void) // params -> param_list | void
 	ExpType type;
 	TreeNode* t;
 	type = type_spec();
-	
+
 	if (type == Void && token == RPAREN) // void 단독 사용 불가
 	{
 		t = newExpNode(VarDeclK);
@@ -221,7 +222,7 @@ TreeNode* params(void) // params -> param_list | void
 	else {
 		t = param_list(type);
 	}
-		
+
 	return t;
 }
 
@@ -234,7 +235,7 @@ TreeNode* param_list(ExpType type) // param_list -> param_list , param | param =
 	{
 		match(COMMA);
 		q = param(type_spec()); //이게 문제...
-		
+
 		if (q != NULL) {
 			if (t == NULL) {
 				t = p = q;
@@ -243,7 +244,7 @@ TreeNode* param_list(ExpType type) // param_list -> param_list , param | param =
 			{
 				p->sibling = q;
 				p = q;
-				
+
 			}
 		}
 	}
@@ -266,7 +267,7 @@ TreeNode* param(ExpType type) // param -> type_spec id | type_spec [ ]
 	else {
 		t = newExpNode(VarDeclK);
 	}
-		
+
 	if (t != NULL)
 	{
 		t->attr.name = name;
@@ -658,14 +659,15 @@ TreeNode* args_list(void) // arg_list , expression | expression
 /****************************************/
 /* the primary function of the parser   */
 /****************************************/
-/* Function parse returns the newly 
+/* Function parse returns the newly
  * constructed syntax tree
  */
-TreeNode * parse(void)
-{ TreeNode * t;
-  token = getToken();
-  t = decl_list();
-  if (token!=ENDFILE)
-    syntaxError("Code ends before file\n");
-  return t;
+TreeNode* parse(void)
+{
+	TreeNode* t;
+	token = getToken();
+	t = decl_list();
+	if (token != ENDFILE)
+		syntaxError("Code ends before file\n");
+	return t;
 }

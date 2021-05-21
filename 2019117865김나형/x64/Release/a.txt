@@ -1,0 +1,54 @@
+
+C MINUS COMPILATION: 1.c
+   1: /* A program to perform Euclid's 
+   2: Algorithm to compute gcd */
+   3: 
+   4: int gcd (int u, int v)
+   5: {   if (v==0) return u;
+   6:     else return gcd(v, u-u/v*v);
+   7:     /* u-u/v*v == u mod v */
+   8: }
+   9: 
+  10: void main(void)
+  11: {   int x; int y;
+  12:     x=input(); y=input();
+  13:     output(gcd(x,y));
+  14: }
+  15: 
+
+Syntax tree:
+  Function: gcd, type : int
+    Parameter : int, u
+    Parameter : int, v
+    Compound Statement :
+      If
+        Op : ==
+          Id : v
+          Const : 0
+        return
+          Id : u
+        return
+          Call : gcd
+            Id : v
+            Op : -
+              Id : u
+              Op : *
+                Op : /
+                  Id : u
+                  Id : v
+                Id : v
+  Function: main, type : void
+    Parameter : void, (null)
+    Compound Statement :
+      Parameter : int, x
+      Parameter : int, y
+      Assign : 
+        Id : x
+        Call : input
+      Assign : 
+        Id : y
+        Call : input
+      Call : output
+        Call : gcd
+          Id : x
+          Id : y

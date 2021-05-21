@@ -1,3 +1,0 @@
-﻿  MAIN.C
-C:\-\3-1\컴파일러\Compiler_Parser\2019117865김나형\MAIN.C(50,14): warning C4101: 'syntaxTree' :참조되지 않은 지역 변수입니다.
-  2019117865김나형.vcxproj -> C:\-\3-1\컴파일러\Compiler_Parser\2019117865김나형\x64\Debug\parse.exe

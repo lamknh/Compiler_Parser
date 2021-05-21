@@ -154,27 +154,15 @@ void printTree(TreeNode* tree)
 				break;
 			case SelStmtK:
 				fprintf(listing, "If\n");
-				/*if (tree->child[2] != NULL)
-					fprintf(listing, "If (condition) (body) (else) \n");
-				else
-					fprintf(listing, "If (condition) (body)\n");*/
 				break;
 			case IterStmtK:
 				fprintf(listing, "While\n");
-				//fprintf(listing, "While (condition) (body) \n");
 				break;
 			case RetStmtK:;
 				fprintf(listing, "return\n");
-				/*if (tree->child[0] == NULL)
-					fprintf(listing, "Return Statement, with NOTHING\n");
-				else
-					fprintf(listing, "Return Statement, with below\n");*/
 				break;
 			case CallK:
-				if (tree->child[0] != NULL)
-					fprintf(listing, "Call, name : %s, with arguments below\n", tree->attr.name);
-				else
-					fprintf(listing, "Call, name : %s, with NOTHING\n", tree->attr.name);
+				fprintf(listing, "Call : %s\n", tree->attr.name);
 				break;
 			default:
 				fprintf(listing, "Unknown ExpNode kind\n");
@@ -185,22 +173,20 @@ void printTree(TreeNode* tree)
 		{
 			switch (tree->kind.exp) {
 			case VarDeclK:
-				if (tree->isParam == TRUE)
-					fprintf(listing, "Single Parameter, name : %s, type : %s\n", tree->attr.name, typeName(tree->type));
-				else
-					fprintf(listing, "Var Declaration, name : %s, type : %s\n", tree->attr.name, typeName(tree->type));
+				fprintf(listing, "Parameter : %s, %s\n", typeName(tree->type), tree->attr.name);
 				break;
 			case VarArrayDeclK:
+
 				if (tree->isParam == TRUE)
-					fprintf(listing, "Array Parameter, name : %s, type : %s\n", tree->attr.name, typeName(tree->type));
+					fprintf(listing, "Array Parameter: %s, %s\n", typeName(tree->type), tree->attr.name);
 				else
-					fprintf(listing, "Array Var Declaration, name : %s, type : %s, size : %d\n", tree->attr.name, typeName(tree->type), tree->arraysize);
+					fprintf(listing, "Array : %s, %s, size : %d\n", typeName(tree->type), tree->attr.name, tree->arraysize);
 				break;
 			case FuncDeclK:
-				fprintf(listing, "Function Declaration, name : %s, type : %s\n", tree->attr.name, typeName(tree->type));
+				fprintf(listing, "Function: %s, type : %s\n", tree->attr.name, typeName(tree->type));
 				break;
 			case AssignK:
-				fprintf(listing, "Assign : (destination) (source) \n");
+				fprintf(listing, "Assign : \n");
 				break;
 			case OpK:
 				fprintf(listing, "Op : ");

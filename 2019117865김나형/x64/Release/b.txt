@@ -1,0 +1,179 @@
+
+C MINUS COMPILATION: 2.c
+   1: /* A program to perform selection sort on a 10
+   2:    element array. */
+   3: 
+   4: int x[10];
+   5: 
+   6: int minloc ( int a[], int low, int high )
+   7: {	int i; int x; int k;
+   8: 	k = low;
+   9: 	x = a[low];
+  10: 	i = low + 1;
+  11: 	while (i < high)
+  12: 	{	if (a[i] < x)
+  13: 			{ x = a[i];
+  14: 			  k = i;  }
+  15: 		i = i + 1;
+  16: 	}
+  17: 	return k;
+  18: }
+  19: 
+  20: void sort( int a[], int low, int high)
+  21: {	int i; int k;
+  22: 	i = low;	
+  23: 
+  24: 	while (i < high-1)
+  25: 	{	int t;
+  26: 		k = minloc(a,i,high,i);
+  27: 		t = a[k];
+  28: 		a[k] = a[i];
+  29: 		a[i] = t;
+  30: 		i = i + 1;
+  31: 	}
+  32: }
+  33: 
+  34: void main(void)
+  35: {	int i;
+  36: 	i = 0;
+  37: 	while (i < 10)
+  38: 	{	x[i] = input();
+  39: 		i = i + 1; }
+  40: 	sort(x,0,10);
+  41: 	i = 0;
+  42: 	while (i < 10)
+  43: 	{	output(x[i]);
+  44: 		i = i + 1; }
+  45: }
+
+Syntax tree:
+  Array Var Declaration, int, x, size : 10
+  Function: minloc, type : int
+    Array Parameter: int, a
+    Parameter : int, low
+    Parameter : int, high
+    Compound Statement :
+      Parameter : int, i
+      Parameter : int, x
+      Parameter : int, k
+      Assign : 
+        Id : k
+        Id : low
+      Assign : 
+        Id : x
+        Id : a
+          Id : low
+      Assign : 
+        Id : i
+        Op : +
+          Id : low
+          Const : 1
+      While
+        Op : <
+          Id : i
+          Id : high
+        Compound Statement :
+          If
+            Op : <
+              Id : a
+                Id : i
+              Id : x
+            Compound Statement :
+              Assign : 
+                Id : x
+                Id : a
+                  Id : i
+              Assign : 
+                Id : k
+                Id : i
+          Assign : 
+            Id : i
+            Op : +
+              Id : i
+              Const : 1
+      return
+        Id : k
+  Function: sort, type : void
+    Array Parameter: int, a
+    Parameter : int, low
+    Parameter : int, high
+    Compound Statement :
+      Parameter : int, i
+      Parameter : int, k
+      Assign : 
+        Id : i
+        Id : low
+      While
+        Op : <
+          Id : i
+          Op : -
+            Id : high
+            Const : 1
+        Compound Statement :
+          Parameter : int, t
+          Assign : 
+            Id : k
+            Call : minloc
+              Id : a
+              Id : i
+              Id : high
+              Id : i
+          Assign : 
+            Id : t
+            Id : a
+              Id : k
+          Assign : 
+            Id : a
+              Id : k
+            Id : a
+              Id : i
+          Assign : 
+            Id : a
+              Id : i
+            Id : t
+          Assign : 
+            Id : i
+            Op : +
+              Id : i
+              Const : 1
+  Function: main, type : void
+    Parameter : void, (null)
+    Compound Statement :
+      Parameter : int, i
+      Assign : 
+        Id : i
+        Const : 0
+      While
+        Op : <
+          Id : i
+          Const : 10
+        Compound Statement :
+          Assign : 
+            Id : x
+              Id : i
+            Call : input
+          Assign : 
+            Id : i
+            Op : +
+              Id : i
+              Const : 1
+      Call : sort
+        Id : x
+        Const : 0
+        Const : 10
+      Assign : 
+        Id : i
+        Const : 0
+      While
+        Op : <
+          Id : i
+          Const : 10
+        Compound Statement :
+          Call : output
+            Id : x
+              Id : i
+          Assign : 
+            Id : i
+            Op : +
+              Id : i
+              Const : 1

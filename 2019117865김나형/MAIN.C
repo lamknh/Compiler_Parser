@@ -49,7 +49,7 @@ int Error = FALSE;
 main( int argc, char * argv[] )
 { TreeNode * syntaxTree;
   char pgm[120]; /* source code file name */
-  if (argc != 2) //3
+  if (argc != 3) //3
     {
 	  fprintf(stderr,"usage: %s <filename>\n",argv[0]);
       exit(1);
@@ -65,14 +65,14 @@ main( int argc, char * argv[] )
     exit(1);
   }
 
-/*  FILE* fp = fopen(argv[2], "at");
+  FILE* fp = fopen(argv[2], "at");
 
   if (fp == NULL) {
 	  printf("스트림 생성시 오류발생");
 	  return 1;
-  }*/
+  }
 
-  listing = stdout; /* send listing to file */ // fp
+  listing = fp; /* send listing to file */ // stdout
   fprintf(listing,"\nC MINUS COMPILATION: %s\n",pgm);
 #if NO_PARSE
   while (getToken()!=ENDFILE);
