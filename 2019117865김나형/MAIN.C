@@ -38,8 +38,8 @@ FILE * listing;
 FILE * code;
 
 /* allocate and set tracing flags */
-int EchoSource = FALSE; //소스코드 출력 x
-int TraceScan = TRUE; 
+int EchoSource = TRUE; //소스코드 출력 x
+int TraceScan = FALSE; 
 int TraceParse = TRUE; //파서만 보여줌
 int TraceAnalyze = FALSE;
 int TraceCode = FALSE;

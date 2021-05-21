@@ -185,20 +185,9 @@ TreeNode* var_decl(void)
 
 ExpType type_spec(void) // type_spec -> int | void
 {
-	printf(listing, ""); //??
-	
 	if (token == INT) {
-		fprintf(listing, "type_spec INT");
-	}
-	else if (token == VOID){
-		fprintf(listing, "type_spec VOID");
-	}
-	else if (token == ID) {
-		fprintf(listing, "type_spec ID");
-	}
-	else {
-		printToken(token, tokenString); 
-	}
+		fprintf(listing, "");
+	} //??
 	
 	switch (token)
 	{
