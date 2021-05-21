@@ -39,8 +39,8 @@ FILE * code;
 
 /* allocate and set tracing flags */
 int EchoSource = TRUE; //소스코드 출력 x
-int TraceScan = TRUE; //스캔 과정 보여줌
-int TraceParse = FALSE;
+int TraceScan = FALSE; 
+int TraceParse = TRUE; //파서만 보여줌
 int TraceAnalyze = FALSE;
 int TraceCode = FALSE;
 
@@ -49,7 +49,7 @@ int Error = FALSE;
 main( int argc, char * argv[] )
 { TreeNode * syntaxTree;
   char pgm[120]; /* source code file name */
-  if (argc != 3)
+  if (argc != 2) //3
     {
 	  fprintf(stderr,"usage: %s <filename>\n",argv[0]);
       exit(1);
@@ -65,15 +65,15 @@ main( int argc, char * argv[] )
     exit(1);
   }
 
-  FILE* fp = fopen(argv[2], "at");
+/*  FILE* fp = fopen(argv[2], "at");
 
   if (fp == NULL) {
 	  printf("스트림 생성시 오류발생");
 	  return 1;
-  }
+  }*/
 
-  listing = fp; /* send listing to file */
-  fprintf(listing,"\nC MINUS PARSER: %s\n",pgm);
+  listing = stdout; /* send listing to file */ // fp
+  fprintf(listing,"\nC MINUS COMPILATION: %s\n",pgm);
 #if NO_PARSE
   while (getToken()!=ENDFILE);
 #else
@@ -109,7 +109,7 @@ main( int argc, char * argv[] )
 #endif
 #endif
   fclose(source);
-  fclose(fp);
+  //fclose(fp);
   return 0;
 }
 

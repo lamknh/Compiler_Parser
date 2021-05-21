@@ -17,7 +17,7 @@ static TreeNode* decl_list(void);
 static TreeNode* decl(void);
 static TreeNode* var_decl(void);
 static ExpType type_spec(void);
-//fun_decl
+//static TreeNode* fun_decl(void);
 static TreeNode* params(void);
 static TreeNode* param_list(ExpType type);
 static TreeNode* param(ExpType type);
@@ -49,15 +49,18 @@ static void syntaxError(char * message)
 }
 
 static void match(TokenType expected)
-{ if (token == expected) token = getToken();
-  else {
-    syntaxError("unexpected token -> ");
-    printToken(token,tokenString);
-    fprintf(listing,"      ");
-  }
+{
+	if (token == expected) {
+		token = getToken();
+	}
+	else {
+		syntaxError("unexpected token -> ");
+		printToken(token,tokenString);
+		fprintf(listing,"      ");
+	}
 }
 
-TreeNode* decl_list(void)
+TreeNode* decl_list(void) //decl_list -> decl_list | decl
 {
 	TreeNode* t = decl();
 	TreeNode* p = t;
@@ -66,21 +69,23 @@ TreeNode* decl_list(void)
 		TreeNode* q;
 		q = decl();
 		if (q != NULL) {
-			if (t == NULL) t = p = q;
+			if (t == NULL) {
+				t = p = q; // decl
+			}
 			else /* now p cannot be NULL either */
 			{
 				p->sibling = q;
-				p = q;
+				p = q; //decl_list
 			}
 		}
 	}
 	return t;
 }
 
-TreeNode* decl(void)
+TreeNode* decl(void) // decl -> var-decl | fun-decl
 {
 	TreeNode* t = NULL;
-	ExpType type;
+	ExpType type; // 예상 값
 	char* name;
 
 	type = type_spec();
@@ -133,9 +138,10 @@ TreeNode* decl(void)
 	}
 	return t;
 }
-
-TreeNode* var_decl(void)
+// var_decl -> fun-decl //fun_decl -> type_spec id ; | type_spec id ( num )
+TreeNode* var_decl(void) 
 {
+	printf(listing, " ");
 	TreeNode* t = NULL;
 	ExpType type;
 	char* name;
@@ -176,8 +182,9 @@ TreeNode* var_decl(void)
 	return t;
 }
 
-ExpType type_spec(void)
+ExpType type_spec(void) // type_spec -> int | void
 {
+	printf(listing, " "); //왜 필요?
 	switch (token)
 	{
 	case INT:
@@ -193,7 +200,9 @@ ExpType type_spec(void)
 	}
 }
 
-TreeNode* params(void)
+//fun_decl -> type_spec id ; | type_spec id ( num );
+
+TreeNode* params(void) // params -> param_list | void
 {
 	ExpType type;
 	TreeNode* t;
@@ -210,7 +219,7 @@ TreeNode* params(void)
 	return t;
 }
 
-TreeNode* param_list(ExpType type)
+TreeNode* param_list(ExpType type) // param_list -> param_list , param | param
 {
 	TreeNode* t = param(type);
 	TreeNode* p = t;
@@ -231,7 +240,7 @@ TreeNode* param_list(ExpType type)
 	return t;
 }
 
-TreeNode* param(ExpType type)
+TreeNode* param(ExpType type) // param -> type_spec id | typd_spec [ ] 
 {
 	TreeNode* t;
 	char* name;
@@ -255,7 +264,7 @@ TreeNode* param(ExpType type)
 	return t;
 }
 
-TreeNode* comp_stmt(void)
+TreeNode* comp_stmt(void) // comp_stmt -> { local_decl stmt_list }
 {
 	TreeNode* t = newStmtNode(CompStmtK);
 	match(LCURLY);
@@ -265,7 +274,7 @@ TreeNode* comp_stmt(void)
 	return t;
 }
 
-TreeNode* local_decl(void)
+TreeNode* local_decl(void) // local_decl -> local_decl var_decl | empty
 {
 	TreeNode* t = NULL;
 	TreeNode* p;
@@ -292,7 +301,7 @@ TreeNode* local_decl(void)
 	return t;
 }
 
-TreeNode* stmt_list(void)
+TreeNode* stmt_list(void) // stmt_list -> stmt_list stmt | empty
 {
 	TreeNode* t;
 	TreeNode* p;
@@ -318,7 +327,7 @@ TreeNode* stmt_list(void)
 	return t;
 }
 
-TreeNode* stmt(void)
+TreeNode* stmt(void) //stmt -> expr_stmt stmt | empty
 {
 	TreeNode* t;
 	switch (token)
@@ -349,7 +358,7 @@ TreeNode* stmt(void)
 	return t;
 }
 
-TreeNode* expr_stmt(void)
+TreeNode* expr_stmt(void) //expr_stmt -> expr ; | ;
 {
 	TreeNode* t = NULL;
 
@@ -363,7 +372,7 @@ TreeNode* expr_stmt(void)
 	return t;
 }
 
-TreeNode* sel_stmt(void)
+TreeNode* sel_stmt(void) //sel_stmt -> if ( expression ) stmt | if ( expression ) stmt else stmt
 {
 	TreeNode* t = newStmtNode(SelStmtK);
 
@@ -384,7 +393,7 @@ TreeNode* sel_stmt(void)
 	return t;
 }
 
-TreeNode* iter_stmt(void)
+TreeNode* iter_stmt(void) //iter_stmt -> while ( expression ) stmt else stmt
 {
 	TreeNode* t = newStmtNode(IterStmtK);
 
@@ -398,7 +407,7 @@ TreeNode* iter_stmt(void)
 	return t;
 }
 
-TreeNode* ret_stmt(void)
+TreeNode* ret_stmt(void) //return ; | return expr ;
 {
 	TreeNode* t = newStmtNode(RetStmtK);
 
@@ -409,7 +418,7 @@ TreeNode* ret_stmt(void)
 	return t;
 }
 
-TreeNode* expr(void)
+TreeNode* expr(void) //var = expr | simple_expr
 {
 	TreeNode* t = NULL;
 	TreeNode* q = NULL;
@@ -444,7 +453,9 @@ TreeNode* expr(void)
 	return t;
 }
 
-TreeNode* simp_expr(TreeNode* f)
+//var -> id | id [ expr ]
+
+TreeNode* simp_expr(TreeNode* f) //add_expr relop add_expr | add_expr
 {
 	TreeNode* t, * q;
 	TokenType oper;
@@ -466,7 +477,9 @@ TreeNode* simp_expr(TreeNode* f)
 	return t;
 }
 
-TreeNode* add_expr(TreeNode* f)
+//relop -> <= | < | > | >= | == | !=
+
+TreeNode* add_expr(TreeNode* f) //add_expr addop term | term
 {
 	TreeNode* t;
 	TreeNode* q;
@@ -490,7 +503,9 @@ TreeNode* add_expr(TreeNode* f)
 	return t;
 }
 
-TreeNode* term(TreeNode* f)
+//addop -> +|-
+
+TreeNode* term(TreeNode* f)//term mulop factor | factor
 {
 	TreeNode* t;
 	TreeNode* q;
@@ -514,7 +529,9 @@ TreeNode* term(TreeNode* f)
 	return t;
 }
 
-TreeNode* factor(TreeNode* f)
+//mulop -> * | /
+
+TreeNode* factor(TreeNode* f) //( expr ) | var | call | NUM
 {
 	TreeNode* t;
 
@@ -548,7 +565,7 @@ TreeNode* factor(TreeNode* f)
 	return t;
 }
 
-TreeNode* call(void)
+TreeNode* call(void) // ID ( args )
 {
 	TreeNode* t;
 	char* name = NULL;
@@ -592,7 +609,7 @@ TreeNode* call(void)
 	return t;
 }
 
-TreeNode* args(void)
+TreeNode* args(void) // arg_list | empty
 {
 	if (token == RPAREN)
 		return NULL;
@@ -600,7 +617,7 @@ TreeNode* args(void)
 		return args_list();
 }
 
-TreeNode* args_list(void)
+TreeNode* args_list(void) // arg_list , expression | expression 
 {
 	TreeNode* t;
 	TreeNode* p;

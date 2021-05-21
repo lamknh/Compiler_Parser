@@ -73,7 +73,7 @@ typedef struct treeNode
 		TokenType op;
 		int val;
 		char* name;
-		struct ScopeListRec* scope;
+		struct ScopeListRec* scope; //?
 	} attr;
 	ExpType type; /* for type checking of exps */
 	int isParam; // Parameter인지 아닌지

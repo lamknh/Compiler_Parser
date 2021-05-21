@@ -14,8 +14,8 @@ char* typeName(ExpType type) {
 	static char v[] = "void";
 
 	switch (type) {
-	case Integer: return i;
-	case Void: return v;
+		case Integer: return i;
+		case Void: return v;
 	}
 }
 
@@ -79,8 +79,8 @@ TreeNode * newStmtNode(StmtKind kind)
   else {
     for (i=0;i<MAXCHILDREN;i++) t->child[i] = NULL;
     t->sibling = NULL;
-    t->nodekind = StmtK;
-    t->kind.stmt = kind;
+    t->nodekind = StmtK; //노드가 문장이라는 것을 나타낸다
+    t->kind.stmt = kind; //복합문, if문, while문, return중 어떤것인지 삽입
     t->lineno = lineno;
   }
   return t;
@@ -100,7 +100,7 @@ TreeNode * newExpNode(ExpKind kind)
     t->nodekind = ExpK;
     t->kind.exp = kind;
     t->lineno = lineno;
-    t->type = Void;
+    t->type = Void; //?
   }
   return t;
 }
@@ -142,9 +142,10 @@ static void printSpaces(void)
 void printTree(TreeNode* tree)
 {
 	int i;
-	INDENT;
+	INDENT; //printTree함수호출할 수록 커서를 시작지점에서 2칸씩 공백을 주어 포함관계를 표현하기 위함
 	while (tree != NULL) {
 		printSpaces();
+		//노드가 문장일 경우
 		if (tree->nodekind == StmtK)
 		{
 			switch (tree->kind.stmt) {
@@ -161,10 +162,11 @@ void printTree(TreeNode* tree)
 				fprintf(listing, "While (condition) (body) \n");
 				break;
 			case RetStmtK:
-				if (tree->child[0] == NULL)
+				fprintf(listing, "Return Statement");
+				/*if (tree->child[0] == NULL)
 					fprintf(listing, "Return Statement, with NOTHING\n");
 				else
-					fprintf(listing, "Return Statement, with below\n");
+					fprintf(listing, "Return Statement, with below\n");*/
 				break;
 			case CallK:
 				if (tree->child[0] != NULL)

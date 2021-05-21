@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c66c52ee-1f1b-4c79-9fa6-467ceaaff781" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/.vs/2019117865김나형/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/.vs/2019117865김나형/v16/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/.vs/2019117865김나형/v16/Browse.VC.db" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/.vs/2019117865김나형/v16/Browse.VC.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/.vs/2019117865김나형/v16/ipch/AutoPCH/156ef30f08c12dbf/MAIN.ipch" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/.vs/2019117865김나형/v16/ipch/AutoPCH/156ef30f08c12dbf/MAIN.ipch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/.vs/2019117865김나형/v16/ipch/AutoPCH/4b967ea5575405b/SCAN.ipch" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/.vs/2019117865김나형/v16/ipch/AutoPCH/4b967ea5575405b/SCAN.ipch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/.vs/2019117865김나형/v16/ipch/AutoPCH/b6797eeb80552f09/PARSE.ipch" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/.vs/2019117865김나형/v16/ipch/AutoPCH/b6797eeb80552f09/PARSE.ipch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/.vs/2019117865김나형/v16/ipch/AutoPCH/beebf70605e34358/UTIL.ipch" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/.vs/2019117865김나형/v16/ipch/AutoPCH/beebf70605e34358/UTIL.ipch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/.vs/2019117865김나형/v16/ipch/AutoPCH/c2e5e511f0a717ef/MAIN.ipch" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/.vs/2019117865김나형/v16/ipch/AutoPCH/c2e5e511f0a717ef/MAIN.ipch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/GLOBALS.H" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/GLOBALS.H" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/MAIN.C" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/MAIN.C" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/PARSE.C" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/PARSE.C" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/UTIL.C" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/UTIL.C" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Debug/2019117865김나형.log" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Debug/2019117865김나형.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Debug/MAIN.obj" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Debug/MAIN.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Debug/PARSE.obj" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Debug/PARSE.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Debug/SCAN.obj" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Debug/SCAN.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Debug/UTIL.obj" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Debug/UTIL.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Debug/parse.exe" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Debug/parse.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Debug/parse.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Debug/parse.ilk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Debug/parse.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Debug/parse.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Debug/parse.tlog/CL.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Debug/parse.tlog/CL.command.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Debug/parse.tlog/CL.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Debug/parse.tlog/CL.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Debug/parse.tlog/CL.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Debug/parse.tlog/CL.write.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Debug/parse.tlog/link.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Debug/parse.tlog/link.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Debug/parse.tlog/link.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Debug/parse.tlog/link.write.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Debug/vc142.idb" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Debug/vc142.idb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Debug/vc142.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Debug/vc142.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Release/2019117865김나형.log" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Release/2019117865김나형.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Release/MAIN.obj" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Release/MAIN.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Release/PARSE.obj" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Release/PARSE.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Release/SCAN.obj" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Release/SCAN.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Release/UTIL.obj" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Release/UTIL.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Release/parse.exe" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Release/parse.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Release/parse.iobj" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Release/parse.iobj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Release/parse.ipdb" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Release/parse.ipdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Release/parse.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Release/parse.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Release/parse.tlog/CL.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Release/parse.tlog/CL.command.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Release/parse.tlog/CL.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Release/parse.tlog/CL.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Release/parse.tlog/CL.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Release/parse.tlog/CL.write.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Release/parse.tlog/link.delete.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Release/parse.tlog/link.delete.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Release/parse.tlog/link.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Release/parse.tlog/link.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Release/parse.tlog/parse.write.1u.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Release/parse.tlog/parse.write.1u.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019117865김나형/x64/Release/vc142.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/2019117865김나형/x64/Release/vc142.pdb" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1splAFz9jNeWHyIfQJvQdO2S0Ap" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c66c52ee-1f1b-4c79-9fa6-467ceaaff781" name="Default Changelist" comment="" />
+      <created>1621577277990</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1621577277990</updated>
+      <workItem from="1621577286191" duration="14000" />
+    </task>
+    <servers />
+  </component>
+</project>
