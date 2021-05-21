@@ -293,7 +293,7 @@ TokenType getToken(void)
 					currentToken = ERROR;
 					break;
 				} // NUM苞 ID 集老 版快  ERROR肺 眉农
-				else if(currentToken != ERROR){
+				else if (currentToken != ERROR) {
 					currentToken = NUM;
 				}
 				ungetNextChar();
@@ -308,7 +308,7 @@ TokenType getToken(void)
 					currentToken = ERROR;
 					break;
 				} // NUM苞 ID 集老 版快  ERROR肺 眉农
-				else if(currentToken != ERROR){
+				else if (currentToken != ERROR) {
 					currentToken = ID;
 				}
 				ungetNextChar();

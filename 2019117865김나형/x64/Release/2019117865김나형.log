@@ -1,10 +1,6 @@
-﻿  PARSE.C
-C:\-\3-1\컴파일러\Compiler_Parser\2019117865김나형\PARSE.C(144,16): warning C4133: '함수': 'FILE *'과(와) 'const char *const ' 사이의 형식이 호환되지 않습니다.
-C:\-\3-1\컴파일러\Compiler_Parser\2019117865김나형\PARSE.C(187,16): warning C4133: '함수': 'FILE *'과(와) 'const char *const ' 사이의 형식이 호환되지 않습니다.
-C:\-\3-1\컴파일러\Compiler_Parser\2019117865김나형\PARSE.C(356,14): warning C4047: 'return': 'TreeNode *'의 간접 참조 수준이 'int'과(와) 다릅니다.
-C:\-\3-1\컴파일러\Compiler_Parser\2019117865김나형\PARSE.C(563,14): warning C4047: 'return': 'TreeNode *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+﻿  MAIN.C
   코드를 생성하고 있습니다.
-  11 of 42 functions (26.2%) were compiled, the rest were copied from previous compilation.
+  1 of 42 functions ( 2.4%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.

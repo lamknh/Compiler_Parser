@@ -103,7 +103,7 @@ TreeNode* decl(void) // decl -> var-decl | fun-decl
 		}
 		match(SEMI);
 		break;
-	case LBRACE:
+	case LBRACE: // [ var-declaration
 		t = newExpNode(VarArrayDeclK);
 		if (t != NULL)
 		{
@@ -117,7 +117,7 @@ TreeNode* decl(void) // decl -> var-decl | fun-decl
 		match(RBRACE);
 		match(SEMI);
 		break;
-	case LPAREN:
+	case LPAREN: // ( fun-declaration
 		t = newExpNode(FuncDeclK);
 		if (t != NULL)
 		{
@@ -125,11 +125,13 @@ TreeNode* decl(void) // decl -> var-decl | fun-decl
 			t->type = type;
 		}
 		match(LPAREN);
-		if (t != NULL)
+		if (t != NULL) {
 			t->child[0] = params();
+		}
 		match(RPAREN);
-		if (t != NULL)
+		if (t != NULL) {
 			t->child[1] = comp_stmt();
+		}	
 		break;
 	default: syntaxError("unexpected token (decl) -> ");
 		printToken(token, tokenString);
@@ -138,10 +140,9 @@ TreeNode* decl(void) // decl -> var-decl | fun-decl
 	}
 	return t;
 }
-// var_decl -> fun-decl //fun_decl -> type_spec id ; | type_spec id ( num )
+// var_decl -> type_spec id ; | type_spec id [ num ]
 TreeNode* var_decl(void) 
 {
-	printf(listing, " ");
 	TreeNode* t = NULL;
 	ExpType type;
 	char* name;
@@ -160,7 +161,7 @@ TreeNode* var_decl(void)
 		}
 		match(SEMI);
 		break;
-	case LBRACE:
+	case LBRACE: // [ -> var-declaration
 		t = newExpNode(VarArrayDeclK);
 		if (t != NULL)
 		{
@@ -184,7 +185,21 @@ TreeNode* var_decl(void)
 
 ExpType type_spec(void) // type_spec -> int | void
 {
-	printf(listing, " "); //왜 필요?
+	printf(listing, ""); //??
+	
+	if (token == INT) {
+		fprintf(listing, "type_spec INT");
+	}
+	else if (token == VOID){
+		fprintf(listing, "type_spec VOID");
+	}
+	else if (token == ID) {
+		fprintf(listing, "type_spec ID");
+	}
+	else {
+		printToken(token, tokenString); 
+	}
+	
 	switch (token)
 	{
 	case INT:
@@ -206,20 +221,22 @@ TreeNode* params(void) // params -> param_list | void
 {
 	ExpType type;
 	TreeNode* t;
-
 	type = type_spec();
-	if (type == Void && token == RPAREN)
+	
+	if (type == Void && token == RPAREN) // void 단독 사용 불가
 	{
 		t = newExpNode(VarDeclK);
 		t->isParam = TRUE;
 		t->type = Void;
 	}
-	else
+	else {
 		t = param_list(type);
+	}
+		
 	return t;
 }
 
-TreeNode* param_list(ExpType type) // param_list -> param_list , param | param
+TreeNode* param_list(ExpType type) // param_list -> param_list , param | param => param { , param }
 {
 	TreeNode* t = param(type);
 	TreeNode* p = t;
@@ -227,34 +244,40 @@ TreeNode* param_list(ExpType type) // param_list -> param_list , param | param
 	while (token == COMMA)
 	{
 		match(COMMA);
-		q = param(type_spec());
+		q = param(type_spec()); //이게 문제...
+		
 		if (q != NULL) {
-			if (t == NULL) t = p = q;
+			if (t == NULL) {
+				t = p = q;
+			}
 			else /* now p cannot be NULL either */
 			{
 				p->sibling = q;
 				p = q;
+				
 			}
 		}
 	}
 	return t;
 }
 
-TreeNode* param(ExpType type) // param -> type_spec id | typd_spec [ ] 
+TreeNode* param(ExpType type) // param -> type_spec id | type_spec [ ] 
 {
 	TreeNode* t;
 	char* name;
 
 	name = copyString(tokenString);
 	match(ID);
-	if (token == LBRACE)
+	if (token == LBRACE) // [
 	{
 		match(LBRACE);
 		match(RBRACE);
-		t = newExpNode(VarArrayDeclK);
+		t = newExpNode(VarArrayDeclK); // array
 	}
-	else
+	else {
 		t = newExpNode(VarDeclK);
+	}
+		
 	if (t != NULL)
 	{
 		t->attr.name = name;

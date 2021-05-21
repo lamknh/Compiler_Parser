@@ -153,16 +153,18 @@ void printTree(TreeNode* tree)
 				fprintf(listing, "Compound Statement :\n");
 				break;
 			case SelStmtK:
-				if (tree->child[2] != NULL)
+				fprintf(listing, "If\n");
+				/*if (tree->child[2] != NULL)
 					fprintf(listing, "If (condition) (body) (else) \n");
 				else
-					fprintf(listing, "If (condition) (body)\n");
+					fprintf(listing, "If (condition) (body)\n");*/
 				break;
 			case IterStmtK:
-				fprintf(listing, "While (condition) (body) \n");
+				fprintf(listing, "While\n");
+				//fprintf(listing, "While (condition) (body) \n");
 				break;
-			case RetStmtK:
-				fprintf(listing, "Return Statement");
+			case RetStmtK:;
+				fprintf(listing, "return\n");
 				/*if (tree->child[0] == NULL)
 					fprintf(listing, "Return Statement, with NOTHING\n");
 				else
