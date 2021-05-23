@@ -420,7 +420,7 @@ TreeNode* sel_stmt(void) //sel_stmt -> if ( expression ) stmt | if ( expression 
 	return t;
 }
 
-TreeNode* iter_stmt(void) //iter_stmt -> while ( expression ) stmt else stmt
+TreeNode* iter_stmt(void) //iter_stmt -> while ( expression ) stmt
 {
 	TreeNode* t = newStmtNode(IterStmtK);
 

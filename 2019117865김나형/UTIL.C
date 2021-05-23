@@ -185,11 +185,12 @@ void printTree(TreeNode* tree)
 				fprintf(listing, "Parameter : %s, %s\n", typeName(tree->type), tree->attr.name);
 				break;
 			case VarArrayDeclK:
-
-				if (tree->isParam == TRUE)
+				if (tree->isParam == TRUE) {
 					fprintf(listing, "Array Parameter: %s, %s\n", typeName(tree->type), tree->attr.name);
-				else
+				}
+				else {
 					fprintf(listing, "Array : %s, %s (size : %d)\n", typeName(tree->type), tree->attr.name, tree->arraysize);
+				}
 				break;
 			case FuncDeclK:
 				fprintf(listing, "Function: %s (return type : %s)\n", tree->attr.name, typeName(tree->type));
