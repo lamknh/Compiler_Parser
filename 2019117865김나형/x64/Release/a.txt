@@ -17,7 +17,7 @@ C MINUS COMPILATION: 1.c
   15: 
 
 Syntax tree:
-  Function: gcd, type : int
+  Function: gcd (return type : int)
     Parameter : int, u
     Parameter : int, v
     Compound Statement :
@@ -37,7 +37,7 @@ Syntax tree:
                   Id : u
                   Id : v
                 Id : v
-  Function: main, type : void
+  Function: main (return type : void)
     Parameter : void, (null)
     Compound Statement :
       Parameter : int, x

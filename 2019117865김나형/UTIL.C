@@ -61,7 +61,6 @@ void printToken( TokenType token, const char* tokenString )
       break;
     case ERROR:
 		fprintf(listing, "ERROR: %s\n",tokenString);
-		//fprintf(listing, "ERROR\n");
       break;
     default: /* should never happen */
 		fprintf(listing,"Unknown token: %d\n",token);
@@ -100,7 +99,7 @@ TreeNode * newExpNode(ExpKind kind)
     t->nodekind = ExpK;
     t->kind.exp = kind;
     t->lineno = lineno;
-    t->type = Void; //?
+    t->type = Void;
   }
   return t;
 }
@@ -172,6 +171,16 @@ void printTree(TreeNode* tree)
 		else if (tree->nodekind == ExpK)
 		{
 			switch (tree->kind.exp) {
+			case OpK:
+				fprintf(listing, "Op : ");
+				printToken(tree->attr.op, "\0");
+				break;
+			case ConstK:
+				fprintf(listing, "Const : %d\n", tree->attr.val);
+				break;
+			case IdK:
+				fprintf(listing, "Id : %s\n", tree->attr.name);
+				break;
 			case VarDeclK:
 				fprintf(listing, "Parameter : %s, %s\n", typeName(tree->type), tree->attr.name);
 				break;
@@ -180,23 +189,13 @@ void printTree(TreeNode* tree)
 				if (tree->isParam == TRUE)
 					fprintf(listing, "Array Parameter: %s, %s\n", typeName(tree->type), tree->attr.name);
 				else
-					fprintf(listing, "Array : %s, %s, size : %d\n", typeName(tree->type), tree->attr.name, tree->arraysize);
+					fprintf(listing, "Array : %s, %s (size : %d)\n", typeName(tree->type), tree->attr.name, tree->arraysize);
 				break;
 			case FuncDeclK:
-				fprintf(listing, "Function: %s, type : %s\n", tree->attr.name, typeName(tree->type));
+				fprintf(listing, "Function: %s (return type : %s)\n", tree->attr.name, typeName(tree->type));
 				break;
 			case AssignK:
 				fprintf(listing, "Assign : \n");
-				break;
-			case OpK:
-				fprintf(listing, "Op : ");
-				printToken(tree->attr.op, "\0");
-				break;
-			case IdK:
-				fprintf(listing, "Id : %s\n", tree->attr.name);
-				break;
-			case ConstK:
-				fprintf(listing, "Const : %d\n", tree->attr.val);
 				break;
 			default:
 				fprintf(listing, "Unknown ExpNode kind\n");

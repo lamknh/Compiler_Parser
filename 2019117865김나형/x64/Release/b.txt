@@ -47,8 +47,8 @@ C MINUS COMPILATION: 2.c
   45: }
 
 Syntax tree:
-  Array Var Declaration, int, x, size : 10
-  Function: minloc, type : int
+  Array : int, x (size : 10)
+  Function: minloc (return type : int)
     Array Parameter: int, a
     Parameter : int, low
     Parameter : int, high
@@ -93,7 +93,7 @@ Syntax tree:
               Const : 1
       return
         Id : k
-  Function: sort, type : void
+  Function: sort (return type : void)
     Array Parameter: int, a
     Parameter : int, low
     Parameter : int, high
@@ -136,7 +136,7 @@ Syntax tree:
             Op : +
               Id : i
               Const : 1
-  Function: main, type : void
+  Function: main (return type : void)
     Parameter : void, (null)
     Compound Statement :
       Parameter : int, i
